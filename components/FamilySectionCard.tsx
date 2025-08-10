@@ -10,7 +10,7 @@ export default function FamilySectionCard({ slug, title, imageSrc }: { slug: str
   return (
     <Link
       href={`/${slug}`}
-      className={`group relative block h-36 xs:h-40 sm:h-48 md:h-72 xl:h-96`}
+      className={`group relative block h-40 xs:h-40 sm:h-48 md:h-72 xl:h-96`}
       aria-label={`${title} Recipe Book`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

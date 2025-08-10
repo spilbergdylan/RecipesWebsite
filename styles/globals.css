@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper-bg: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+               radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+  --paper-pos: 0 0, 25px 25px;
+  --paper-size: 50px 50px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-100 text-neutral;
+  background-image: var(--paper-bg);
+  background-position: var(--paper-pos);
+  background-size: var(--paper-size);
+}
+
+.card-hover {
+  @apply transition-transform duration-200 ease-out hover:scale-[1.02] hover:brightness-105;
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring focus-visible:ring-primary/40;
+}
+
+/* Notebook card styling (kraft cover + metal spiral) */
+.notebook-card {
+  position: relative;
+  background-color: #E8DCC8; /* kraft cover */
+  box-shadow: inset 0 0 0 1px rgba(60,45,30,0.08), 0 6px 18px rgba(0,0,0,0.06);
+}
+/* subtle kraft speckle */
+.notebook-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-position: 0 0, 10px 8px;
+  background-size: 12px 12px, 18px 18px;
+  opacity: 0.35;
+}
+/* spiral + punched holes column */
+.notebook-card::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 10px;
+  width: 28px; /* room for holes + metal */
+  background-image:
+    /* punched holes */
+    radial-gradient(circle at 8px 10px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 38px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 66px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 94px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 122px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 150px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 178px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 206px, #cbbfa9 0 6px, transparent 7px),
+    radial-gradient(circle at 8px 234px, #cbbfa9 0 6px, transparent 7px),
+    /* metal spiral segments */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 18px,
+      /* ring */
+      #b0b7be 18px 20px,
+      #dfe3e6 20px 22px,
+      #8c989f 22px 24px,
+      transparent 24px 28px
+    );
+  background-repeat: repeat-y;
+  background-size: 28px 28px;
+  box-shadow: inset -1px 0 0 rgba(60,45,30,0.12); /* darker inner edge */
+  width: 8px;
+  background:
+    radial-gradient(circle at 50% 8px, rgba(0,0,0,0.15) 0, rgba(0,0,0,0.15) 3px, transparent 4px) repeat-y;
+  background-size: 8px 28px;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Rustic accents */
+.rustic-card {
+  position: relative;
+}
+.rustic-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(60,45,30,0.08), inset 0 8px 24px rgba(60,45,30,0.08);
+}
+
+@layer components {
+  .btn-3d {
+    @apply relative border border-black/5 shadow-[0_8px_18px_rgba(0,0,0,0.2)] transition-all duration-200 ease-out;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(0,0,0,0.06));
+  }
+  .btn-3d:hover {
+    @apply -translate-y-0.5 shadow-[0_12px_24px_rgba(0,0,0,0.25)];
+  }
+  .btn-3d:active {
+    @apply translate-y-0 shadow-[0_6px_14px_rgba(0,0,0,0.2)];
+  }
+} 

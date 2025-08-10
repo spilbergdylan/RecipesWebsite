@@ -19,10 +19,10 @@ export default async function RecipeDetail({ params }: { params: { id: string } 
   const ingredients = parseStringArray((recipe as any).ingredients);
 
   return (
-    <div className="flex items-center justify-center py-4">
+    <div className="flex items-stretch md:items-center justify-center py-2 md:py-4 min-h-dvh">
       <div className="w-full max-w-5xl">
         <div
-          className="relative mx-auto m-2 rounded-[3rem] overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.35)] ring-1 ring-black/5 max-h-[calc(100vh-2rem)] overflow-auto before:content-[''] before:absolute before:inset-4 before:rounded-[2.5rem] before:ring-1 before:ring-white/70 before:shadow-inner before:pointer-events-none after:content-[''] after:absolute after:inset-8 after:rounded-[2rem] after:ring-1 after:ring-white/50 after:pointer-events-none"
+          className="relative mx-auto m-2 rounded-[3rem] overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.35)] ring-1 ring-black/5 h-[calc(100dvh-1rem)] md:h-auto md:max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-y-contain scroll-smooth [-webkit-overflow-scrolling:touch] before:content-[''] before:absolute before:inset-4 before:rounded-[2.5rem] before:ring-1 before:ring-white/70 before:shadow-inner before:pointer-events-none after:content-[''] after:absolute after:inset-8 after:rounded-[2rem] after:ring-1 after:ring-white/50 after:pointer-events-none"
           style={{
             backgroundImage:
               'radial-gradient(ellipse at center, rgba(255,255,255,0.98) 0%, rgba(247,247,247,0.98) 55%, rgba(236,236,236,0.98) 100%)'

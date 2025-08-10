@@ -1,16 +1,17 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function RecipeCard({ recipe }: { recipe: any }) {
   return (
-    <Link href={`/recipes/${recipe.id}`} className="block rounded-2xl overflow-hidden shadow bg-base-200 card-hover">
-      <div className="relative aspect-[5/4] md:aspect-[4/3]">
-        <Image src={recipe.imageUrl || '/placeholder.svg'} alt={recipe.title} fill className="object-cover" />
-      </div>
-      <div className="p-3 md:p-4">
-        <div className="text-base md:text-lg font-semibold" style={{ fontFamily: 'var(--font-caveat)' }}>{recipe.title}</div>
-        <p className="text-xs md:text-sm text-neutral/70 line-clamp-2">{recipe.description}</p>
+    <Link href={`/recipes/${recipe.id}`} className="group block relative aspect-square">
+      {/* Cast shadow under the plate for 3D depth */}
+      <div className="plate-shadow absolute bottom-3 left-1/2 -translate-x-1/2 w-3/4 h-6 bg-black/20 rounded-full blur-md md:blur-lg z-0" aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/plate.png" alt="Plate" className="plate-img plate-shine absolute inset-0 h-full w-full object-contain z-10" aria-hidden="true" />
+      <div className="absolute inset-0 p-3 md:p-4 flex items-center justify-center text-center z-20">
+        <div className="max-w-[70%] md:max-w-[60%] mx-auto plate-text plate-text-shine">
+          <div className="text-base md:text-lg font-semibold text-black" style={{ fontFamily: 'var(--font-caveat)' }}>{recipe.title}</div>
+        </div>
       </div>
     </Link>
   );

@@ -19,7 +19,7 @@ export function ChangeImageButton({ recipeId }: { recipeId: number }) {
   return (
     <div>
       <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={onFileChange} />
-      <button className="btn btn-secondary btn-3d btn-sm" onClick={() => inputRef.current?.click()}>Change image</button>
+      <button className="btn btn-secondary btn-3d btn-sm md:btn-md" onClick={() => inputRef.current?.click()}>Change image</button>
     </div>
   );
 }
@@ -39,6 +39,6 @@ export function DeleteRecipeButton({ id, familySlug }: { id: number; familySlug:
     }
   }
   return (
-    <button className="btn btn-error btn-3d" onClick={onDelete}>Delete</button>
+    <button className="btn btn-error btn-3d btn-sm md:btn-md" onClick={onDelete}>Delete</button>
   );
 } 

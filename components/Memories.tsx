@@ -25,7 +25,7 @@ export default function Memories({ recipeId, initialMemories }: { recipeId: numb
   }
 
   return (
-    <div className="bg-base-200 p-4 rounded-2xl shadow-sm space-y-4">
+    <div className="bg-base-100/80 backdrop-blur-sm ring-1 ring-black/5 p-4 rounded-2xl shadow-sm space-y-4">
       <h2 className="text-xl font-semibold">Family Memories</h2>
       <form onSubmit={addMemory} className="grid sm:grid-cols-4 gap-2 items-start">
         <input className="input input-bordered sm:col-span-1" placeholder="Author (optional)" value={author} onChange={(e) => setAuthor(e.target.value)} />
@@ -34,7 +34,7 @@ export default function Memories({ recipeId, initialMemories }: { recipeId: numb
       </form>
       <ul className="space-y-3">
         {memories.map((m) => (
-          <li key={m.id} className="p-3 rounded-xl bg-base-100 shadow-sm">
+          <li key={m.id} className="p-3 rounded-xl bg-base-100/90 ring-1 ring-black/5 shadow-sm">
             <div className="text-neutral/80 text-sm">{new Date(m.createdAt).toLocaleString()}</div>
             <div className="mt-1">{m.text}</div>
             {m.author && <div className="text-neutral/60 text-sm mt-1">— {m.author}</div>}
